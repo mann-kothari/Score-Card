@@ -1,0 +1,14 @@
+.card {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin: 10px;
+}
+
+.stats {
+    display: flex;
+    align-items: center;
+}
+
+.stats p {
+    margin: 0 10px;
+}
