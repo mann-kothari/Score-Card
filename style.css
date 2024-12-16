@@ -2,6 +2,13 @@
     border: 1px solid #ccc;
     padding: 10px;
     margin: 10px;
+    width: 35vmin;
+}
+
+#cardsContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .stats {
