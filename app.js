@@ -15,7 +15,7 @@ document.getElementById('addCardBtn').addEventListener('click', function () {
     cardDiv.appendChild(titleElement);
 
     // Create the stats sections
-    const stats = ['points', 'attempts', 'makes', 'misses', 'Offensive_rebs', 'Deffensive_rebs', 'assists', 'turns', 'steals', 'blocks'];
+    const stats = ['points', 'attempts', 'makes', 'misses', 'Offensive_rebs', 'Deffensive_rebs', 'FTM', 'FTA', 'assists', 'turns', 'steals', 'blocks'];
     stats.forEach(stat => {
         const statDiv = document.createElement('div');
         statDiv.className = `stats ${stat}`;
@@ -56,7 +56,7 @@ document.getElementById('addCardBtn').addEventListener('click', function () {
                 updatePlayerImpactEstimate(cardDiv);
             });
             statDiv.appendChild(decrementBtn);
-        } else if (['Offensive_rebs', 'Deffensive_rebs', 'assists', 'turns', 'steals', 'blocks'].includes(stat)) {
+        } else if (['Offensive_rebs', 'Deffensive_rebs', 'FTM', 'FTA', 'assists', 'turns', 'steals', 'blocks'].includes(stat)) {
             const incrementBtn = document.createElement('button');
             incrementBtn.textContent = '+1';
             incrementBtn.addEventListener('click', function () {
@@ -105,6 +105,8 @@ function updatePlayerImpactEstimate(cardDiv) {
     const points = parseInt(cardDiv.querySelector('.points .number').textContent) || 0;
     const off_rebs = parseInt(cardDiv.querySelector('.Offensive_rebs .number').textContent) || 0;
     const deff_rebs = parseInt(cardDiv.querySelector('.Deffensive_rebs .number').textContent) || 0;
+    const FTA = parseInt(cardDiv.querySelector('.FTA .number').textContent) || 0;
+    const FTM = parseInt(cardDiv.querySelector('.FTM .number').textContent) || 0;
     const assists = parseInt(cardDiv.querySelector('.assists .number').textContent) || 0;
     const steals = parseInt(cardDiv.querySelector('.steals .number').textContent) || 0;
     const blocks = parseInt(cardDiv.querySelector('.blocks .number').textContent) || 0;
@@ -112,6 +114,6 @@ function updatePlayerImpactEstimate(cardDiv) {
     const makes = parseInt(cardDiv.querySelector('.makes .number').textContent) || 0;
     const turns = parseInt(cardDiv.querySelector('.turns .number').textContent) || 0;
 
-    const pie = (points + (0.4 * makes) - (0.7 * attempts) - (0.4 * 1) + (0.7 * off_rebs) + (0.3 * deff_rebs) + steals + (0.7 * assists) + (0.7 * blocks) - (0.4 * 1) - turns);
+    const pie = (points + (0.4 * makes) - (0.7 * attempts) - (0.4 * (FTA - FTM)) + (0.7 * off_rebs) + (0.3 * deff_rebs) + steals + (0.7 * assists) + (0.7 * blocks) - (0.4 * 1) - turns);
     cardDiv.querySelector('.player-impact-estimate').textContent = `Player Impact Estimate (PIE): ${pie.toFixed(2)}`;
 }
