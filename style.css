@@ -1,21 +1,118 @@
-.card {
-    border: 1px solid #ccc;
-    padding: 10px;
-    margin: 10px;
-    width: 35vmin;
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-#cardsContainer{
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    padding: 20px;
+}
+
+/* Container for the cards */
+#cardsContainer {
     display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
     justify-content: center;
-    align-items: center;
 }
 
+/* Individual card styles */
+.card {
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 250px;
+    transition: transform 0.2s;
+}
+
+/* Hover effect for cards */
+.card:hover {
+    transform: scale(1.05);
+}
+
+/* Paragraph styles within cards */
+.card p {
+    margin: 10px 0;
+}
+
+/* Stats section styles */
 .stats {
-    display: flex;
-    align-items: center;
+    margin: 15px 0;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #f9f9f9;
 }
 
-.stats p {
-    margin: 0 10px;
+/* Number styles within stats */
+.stats .number {
+    font-weight: bold;
+    font-size: 1.2em;
+}
+
+/* Button styles */
+button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 8px 12px;
+    cursor: pointer;
+    margin-right: 5px;
+    transition: background-color 0.3s;
+}
+
+/* Button hover effect */
+button:hover {
+    background-color: #0056b3;
+}
+
+/* Player impact estimate display */
+.player-impact-estimate {
+    font-weight: bold;
+    font-size: 1.1em;
+    margin-top: 15px;
+    color: #333;
+}
+
+/* Input field styles */
+input[type="text"] {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    width: calc(100% - 22px);
+    margin-bottom: 10px;
+}
+
+/* Add card button styles */
+#addCardBtn {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 15px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+/* Add card button hover effect */
+#addCardBtn:hover {
+    background-color: #218838;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    #cardsContainer {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .card {
+        width: 90%; /* Full width on smaller screens */
+    }
 }
