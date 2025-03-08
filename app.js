@@ -52,6 +52,7 @@ document.getElementById("addCardBtn").addEventListener("click", function () {
   // Add title to the card
   const titleElement = document.createElement("p");
   titleElement.textContent = cardTitle;
+  titleElement.className = "cardTitle";
   cardDiv.appendChild(titleElement);
 
   // Create the stats sections
@@ -71,7 +72,11 @@ document.getElementById("addCardBtn").addEventListener("click", function () {
   ];
   stats.forEach((stat) => {
     const statDiv = document.createElement("div");
-    statDiv.className = `stats ${stat}`;
+    if (stat === "attempts" || stat === "makes") {
+      statDiv.className = `stats ${stat} shooting-stat`;
+    } else {
+      statDiv.className = `stats ${stat}`;
+    }
 
     const statLabel = document.createElement("p");
     statLabel.textContent = stat.charAt(0).toUpperCase() + stat.slice(1);
@@ -151,9 +156,6 @@ document.getElementById("addCardBtn").addEventListener("click", function () {
   const cards = document.querySelectorAll(".card");
   cards.forEach((card) => card.classList.add("inactive"));
   cardDiv.classList.add("active");
-
-  // Select the new player in the dropdown
-  selector.value = cardTitle;
 });
 
 function updatePoints(cardDiv, points) {
