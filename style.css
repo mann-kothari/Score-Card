@@ -161,8 +161,8 @@
         width: 50%;
         height: fit-content;
         background-color: #fff;
-        padding: 10px;
-        border-radius: 5px;
+        padding: 0;
+        border-radius: none;
         box-shadow: 0 2px 4px rgba(0,0,0,0.1);
         /* justify-content: center; */
         /* z-index: 10; */
@@ -184,7 +184,7 @@
     }
 
     #cardTitleInput {
-        width: calc(100% - 20px);
+        width: 122px;
         margin-bottom: 10px;
     }
 
