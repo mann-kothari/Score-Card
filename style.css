@@ -120,52 +120,13 @@
 /* Responsive styles */
 @media screen and (max-width: 768px) {
     .player-selector {
-        position: sticky;
-        top: 0;
-        right: 0;
-        width: 100%;
-        background-color: #fff;
-        padding: 10px 0;
-        border-radius: 0;
-        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        display: flex;
-        justify-content: center;
-        z-index: 1000;
-    }
-
-    #cardsContainer {
-        position: relative;
-        width: 300px;
-        margin: 20px auto;
-    }
-
-    .stats {
-        flex-wrap: wrap;
-    }
-
-    .stats button {
-        margin: 4px;
-    }
-
-    #cardTitleInput {
-        width: calc(100% - 20px);
-        margin-bottom: 10px;
-    }
-}
-
-@media screen and (max-width: 480px) {
-    .player-selector {
-        /* position: sticky;
-        top: 0;
-        right: 0; */
-        width: 50%;
-        height: fit-content;
+        position: fixed;
+        top: 20px;
+        right: 20px;
         background-color: #fff;
         padding: 0;
-        border-radius: none;
+        border-radius: 8px;
         box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        /* justify-content: center; */
-        /* z-index: 10; */
     }
 
     #cardsContainer {
@@ -184,7 +145,50 @@
     }
 
     #cardTitleInput {
-        width: 122px;
+        padding: 8px;
+        margin-right: 10px;
+        border: 1px solid #ced4da;
+        border-radius: 4px;
+        width: 200px;
+    }
+
+    #addCardBtn:hover {
+    background-color: #218838;
+}
+}
+
+@media screen and (max-width: 480px) {
+    .player-selector {
+        position: sticky;
+        /* top: 0;
+        right: 0; */
+        width: 48.5%;
+        height: fit-content;
+        background-color: #fff;
+        padding: 0;
+        border-radius: none;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        justify-content: center;
+        z-index: 10;
+    }
+
+    #cardsContainer {
+        position: relative;
+        width: 300px;
+        margin: 20px auto;
+    }
+
+    .stats {
+        margin: 0;
+        padding: 0;
+    }
+
+    .stats button {
+        margin: 4px;
+    }
+
+    #cardTitleInput {
+        width: 166px;
         margin-bottom: 10px;
     }
 
